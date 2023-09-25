@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs")  %>
+<div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="true" href="/"><i class="bi bi-calendar-week"></i> Today</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="work"><i class="bi bi-box"></i> Work</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body cd-body">
+    <div class="container c">
+<div class="big-list col-xl-6 col-lg-7 col-md-9">
+    <div class="get-day d-flex flex-column justify-content-center">
+        <% const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] %>
+        <% const months = ["January","February","March","April","May","June","July","August","September","October","November","December"] %>
+        <h3><%= days[new Date().getDay()] %>, <%= months[new Date().getMonth()]%> <%= new Date().getDate() %></h3>
+    </div>
+
+    <div class="mylist">
+        <% if(locals.today){
+            today.find((item)=>{%>
+              <form action="/delete" method="post">
+                <div class="task-item">
+                    <input type="checkbox" onChange="this.form.submit()" name="check" value="<%= item._id %>">
+                    <p><%= item.name %></p>
+                </div>
+              </form>
+           <% })} else{}%>
+            <form action="/submit" method="post" class="add-item d-flex flex-wrap align-center">
+                <div class="col d-flex flex-column justify-content-center flex-wrap">
+                    <input type="text" name="item" placeholder="New Item">
+                </div>
+                <button type="submit">+</button>
+            </form>
+    </div>
+
+</div>
+<%- include("partials/footer.ejs")  %>

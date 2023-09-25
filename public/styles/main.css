@@ -1,0 +1,100 @@
+.get-day{
+    background: linear-gradient( to bottom right, #6B73FF 10%, var(--indigo) 100%);
+    min-height: 65px;
+    border-radius: 20px;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.card{
+    border: 0;
+}
+
+.task-item{
+    min-height: auto;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+}
+
+.mylist{
+    padding: 15px;
+    border: 2px solid #6B73FF;
+    border-radius: 20px
+}
+
+.add-item{
+    margin: 0;
+    padding: 15px;
+    display: flex;
+}
+
+.add-item input[type=text]{
+    border: 0;
+    margin: 0;
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 8px;
+    padding-bottom: 7px;
+    width: 100%;
+    min-width: 100px;
+}
+
+.add-item input[type=text]:focus{
+    outline: none;
+    border-bottom: 3px #6B73FF solid;
+}
+
+.add-item button[type=submit]{
+    background: #6B73FF;
+    width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    border: 0;
+    color: var(--white);
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.task-item > p{
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.task-item > input:checked + p{
+    margin: 0;
+    font-size: 1.1em;
+    text-decoration: line-through;
+    text-decoration-color: #6B73FF;
+    text-decoration-thickness: 4px;
+}
+
+.task-item > input[type=checkbox]{
+    margin: 5px;
+    margin-right: 15px;
+    float: left;
+    height: 20px;
+    width: 20px;
+}
+
+.big-list{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 576px) {
+    .cd-body{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .c{
+        padding: 0;
+    }
+
+    h3{
+        font-size:1.3em;
+    }
+}

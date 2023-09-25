@@ -1,0 +1,38 @@
+<%- include("partials/header.ejs")  %>
+<div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="true" href="/"><i class="bi bi-calendar-week"></i> Today</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="work"><i class="bi bi-box"></i> Work</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body cd-body">
+    <div class="container c">
+<div class="big-list col-xl-6 col-lg-7 col-md-9">
+    <div class="get-day d-flex flex-column justify-content-center">
+        <h3>Work List</h3>
+    </div>
+
+    <div class="mylist">
+        <% if(locals.work){
+            work.find((item)=>{%>
+              <form action="/deletew"  method="post">
+                <div class="task-item">
+                    <input type="checkbox" name="check" value="<%= item._id%>" onChange="this.form.submit()">
+                    <p><%= item.name %></p>
+                </div>
+              </form>
+           <% })} else{}%>
+            <form action="/submitw" method="post" class="add-item d-flex flex-wrap align-center">
+                <div class="col d-flex flex-column justify-content-center flex-wrap">
+                    <input type="text" name="item" placeholder="New Item">
+                </div>
+                <button type="submit">+</button>
+            </form>
+    </div>
+
+</div>
+<%- include("partials/footer.ejs")  %>
